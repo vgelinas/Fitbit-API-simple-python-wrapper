@@ -73,7 +73,7 @@ class Fitbit:
 		return wrapper 
 	
 	@sleep_and_retry 
-	@limits(calls=125, period=3600) 
+	@limits(calls=145, period=3600) 
 	def make_request(self, *args, **kwargs): 
 		""" Wrapper for the request method. """ 
 		response = requests.request(*args, **kwargs)
