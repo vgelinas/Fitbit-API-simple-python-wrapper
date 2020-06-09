@@ -1,5 +1,5 @@
 """ Python wrapper class for the Fitbit API. 
-	Inspired by orcasgit/python-fitbit, written for practice as I learn oauth2. 
+    Inspired by orcasgit/python-fitbit, written for practice as I learn oauth2. 
 """  
 
 import json  
@@ -21,9 +21,9 @@ class Fitbit:
 	   refresh_token: the corresponding refresh token.
 	   expires_at: the unix time at which access_token expires (e.g. 1591749405.1234567). 
 	   token_update_method: a method accepting a token dict and storing it as a static file,
-							used to refresh tokens as they expire. 
+	   			used to refresh tokens as they expire. 
 
-	   """  
+	"""  
 
 	def __init__(self, client_id=None, client_secret=None, access_token=None, 
 				 refresh_token=None, expires_at=None, token_update_method=None):      
@@ -37,8 +37,9 @@ class Fitbit:
 
 	def refresh_tokens(self): 
 		""" Called when access_token has expired. Use a valid refresh_token to 
-			refresh the access_token, refresh_token and expires_at attributes. 
-			Calls the token_update_method to store the updated token information. """ 
+		    refresh the access_token, refresh_token and expires_at attributes. 
+		    Calls the token_update_method to store the updated token information. 
+		""" 
 
 		# Get new token dict from server 
 		response = requests.post('https://api.fitbit.com/oauth2/token', 
@@ -85,24 +86,24 @@ class Fitbit:
 	def get_resource(self, resource_url):  
 		""" Accepts string url as one of these resource endpoints:  
 
-			Activities: 
-			https://api.fitbit.com/1/user/-/activities/date/[date].json  
-			https://api.fitbit.com/1/user/-/[resource-path]/date/[date]/[period].json 
-			https://api.fitbit.com/1/user/-/[resource-path]/date/[base-date]/[end-date].json
-			https://api.fitbit.com/1/user/-/[resource-path]/date/[date]/[date]/[detail-level].json 
-			https://api.fitbit.com/1/user/-/[resource-path]/date/[date]/1d/[detail-level].json
-			https://api.fitbit.com/1/user/-/[resource-path]/date/[date]/[date]/[detail-level]/time/[start-time]/[end-time].json
-			https://api.fitbit.com/1/user/-/[resource-path]/date/[date]/1d/[detail-level]/time/[start-time]/[end-time].json
+		    Activities: 
+		    https://api.fitbit.com/1/user/-/activities/date/[date].json  
+		    https://api.fitbit.com/1/user/-/[resource-path]/date/[date]/[period].json 
+		    https://api.fitbit.com/1/user/-/[resource-path]/date/[base-date]/[end-date].json
+		    https://api.fitbit.com/1/user/-/[resource-path]/date/[date]/[date]/[detail-level].json 
+		    https://api.fitbit.com/1/user/-/[resource-path]/date/[date]/1d/[detail-level].json
+		    https://api.fitbit.com/1/user/-/[resource-path]/date/[date]/[date]/[detail-level]/time/[start-time]/[end-time].json
+		    https://api.fitbit.com/1/user/-/[resource-path]/date/[date]/1d/[detail-level]/time/[start-time]/[end-time].json
 
-			Heart rate: 
-			https://api.fitbit.com/1/user/-/activities/heart/date/[date]/[period].json 
-			https://api.fitbit.com/1/user/-/activities/heart/date/[base-date]/[end-date].json 
+		    Heart rate: 
+		    https://api.fitbit.com/1/user/-/activities/heart/date/[date]/[period].json 
+		    https://api.fitbit.com/1/user/-/activities/heart/date/[base-date]/[end-date].json 
 
-			Sleep: 
-			https://api.fitbit.com/1.2/user/-/sleep/date/[date].json 
-			https://api.fitbit.com/1.2/user/-/sleep/date/[startDate]/[endDate].json 
+		    Sleep: 
+		    https://api.fitbit.com/1.2/user/-/sleep/date/[date].json 
+		    https://api.fitbit.com/1.2/user/-/sleep/date/[startDate]/[endDate].json 
 
-			See https://dev.fitbit.com/build/reference/web-api/ for details. 
+		    See https://dev.fitbit.com/build/reference/web-api/ for details. 
 		""" 
 		headers = {'Authorization': 'Bearer {}'.format(self.access_token)} 
 		return self.make_request('GET', url=resource_url, headers=headers)   
