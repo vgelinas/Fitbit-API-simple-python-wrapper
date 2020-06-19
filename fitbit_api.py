@@ -1,5 +1,6 @@
-""" Python wrapper class for the Fitbit API. 
-	Inspired by orcasgit/python-fitbit, written for practice as I learn oauth2.
+""" 
+Python wrapper class for the Fitbit API. 
+Inspired by orcasgit/python-fitbit, written for practice as I learn oauth2.
 """  
 
 import json  
