@@ -13,24 +13,24 @@ class Fitbit:
 	A simple class for calling the Fitbit WEB API, 
 	see https://dev.fitbit.com/build/reference/web-api/
 
-    Handles the oauth2 token refresh process automatically. 
-    Rate limited at 145 calls/hour, sleeps and retries when limit reached.
-   
-    Attributes:  
-    client_id: your Fitbit app client id. 
+	Handles the oauth2 token refresh process automatically. 
+	Rate limited at 145 calls/hour, sleeps and retries when limit reached.
 
-    client_secret: your Fitbit app client secret.
+	Attributes:  
+	client_id: your Fitbit app client id. 
 
-    access_token: an oauth2 access token.
+	client_secret: your Fitbit app client secret.
 
-    refresh_token: the corresponding refresh token.
+	access_token: an oauth2 access token.
 
-    expires_at: the unix time at which access_token expires 
+	refresh_token: the corresponding refresh token.
+
+	expires_at: the unix time at which access_token expires 
 				(e.g. 1591749405.1234567). 
 
-    token_update_method: a method accepting a token dict and storing it as a 
+	token_update_method: a method accepting a token dict and storing it as a 
 						 static file, used to refresh tokens as they expire. 
-	"""   
+	""" 
 
 	def __init__(self, client_id=None, client_secret=None, 
 			     access_token=None, refresh_token=None, 
